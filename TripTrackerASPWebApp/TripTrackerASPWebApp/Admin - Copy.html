@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        ul > li, a {
+            cursor: pointer;
+        }
+    </style>
+    <script src="Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <script type="text/javascript">
+        var dashboard = angular.module("Dashboard", []);
+        dashboard.controller("BarGraphController", function ($scope) {
+            $scope.color = "green";
+            $scope.width = 100;
+            $scope.specs = {height:30, bars: [{width: 50, color: 'green'},
+            {width: 200, color: 'yellow'},
+            {width: 100, color: 'black'}]}
+
+        });
+    </script>
+</head>
+<body ng-app="Dashboard">
+    <div ng-controller="BarGraphController">
+        <span>
+            <svg width="250" height="250" style="border: solid 1px gray">
+                <rect ng-repeat="bar in specs.bars" x="" y="{{specs.height * $index}}" fill="{{bar.color}}"width="{{bar.width}}" height={{specs.height}} />
+
+            </svg>
+        </span>
+
+    </div>
+    <div ng-controller="BarGraphController">
+        width : <input type="text" ng-model="width" />
+        <span>
+            <svg width="250" height="250" style="border: solid 1px gray">
+                <rect x="0" y="0" fill="{{color}}" width="{{width}}" height="30" />
+
+            </svg>
+        </span>
+
+    </div>
+</body>
+</html>

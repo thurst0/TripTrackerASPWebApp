@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        ul > li, a {
+            cursor: pointer;
+        }
+    </style>
+    <script src="Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="Scripts/chart.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js" type="text/javascript"></script>
+
+    <script src="Scripts/angular-chart.js" type="text/javascript"></script>
+    <script src="Scripts/angular-chart.min.js" type="text/javascript"></script>
+     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <script type="text/javascript">
+        angular.module("app", ["chart.js"]).controller("PieCtrl", function ($scope) {
+            $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+            $scope.data = [300, 500, 100];
+        });
+    </script>
+  
+
+</head>
+<body>
+    <canvas id="pie" class="chart chart-pie"
+            chart-data="data" chart-labels="labels" chart-options="options"></canvas> 
+</body>
+</html>
